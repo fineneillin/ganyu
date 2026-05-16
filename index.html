@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0041)file:///Users/nqya/Downloads/index_2.html -->
+<!-- saved from url=(0041)file:///Users/nqya/Downloads/index_3.html -->
 <html lang="zh-TW"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>趕魚</title>
-<link href="./ ganyu_files/css2" rel="stylesheet">
+<link href="./ganyu2_files/css2" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -17,29 +17,29 @@
     --serif: 'Noto Serif SC', 'Songti SC', 'STSong', Georgia, serif;
   }
 
-  html, body { background: var(--paper); min-height: 100vh; }
+  html { height: 100%; overflow: hidden; background: var(--paper); }
 
   body {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    height: 100vh;
+    overflow: hidden;
     font-family: var(--serif);
     color: var(--ink);
   }
 
   /* ── Header ── */
   header {
-    width: 100%;
-    max-width: 1100px;
-    padding: 3.5rem 3rem 1.2rem;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 2.2vh 2rem .8vh;
   }
 
   .title-zh {
     font-family: 'Ma Shan Zheng', 'KaiTi', '楷体', 'STKaiti', cursive;
-    font-size: clamp(64px, 10vw, 112px);
+    font-size: clamp(38px, 6.5vh, 88px);
     font-weight: 400;
     color: var(--ink);
     line-height: 1;
@@ -47,29 +47,30 @@
   }
 
   .title-rule {
-    width: 36px;
-    height: 1px;
+    width: 28px;
+    height: .5px;
     background: var(--ink-faint);
-    margin: 1.2rem auto .9rem;
+    margin: .7vh auto .5vh;
   }
 
   .title-en {
-    font-size: 11px;
+    font-size: 10px;
     color: var(--ink-light);
-    letter-spacing: .28em;
+    letter-spacing: .26em;
     text-transform: uppercase;
     font-weight: 300;
   }
 
   /* ── Pond canvas ── */
   main {
-    width: 100%;
-    max-width: 1100px;
+    flex: 1;
+    min-height: 0;
     padding: 0 2rem;
   }
 
   .pond-wrap {
     width: 100%;
+    height: 100%;
     border-radius: 3px;
     overflow: hidden;
   }
@@ -77,63 +78,66 @@
   canvas {
     display: block;
     width: 100%;
-    height: clamp(360px, 60vh, 680px);
+    height: 100%;
     cursor: none;
   }
 
   /* ── Footer notes ── */
   footer {
-    width: 100%;
-    max-width: 1100px;
-    padding: 2.2rem 3rem 4rem;
+    flex-shrink: 0;
+    padding: 1.2vh 2.5rem 1.8vh;
     border-top: .5px solid var(--ink-faint);
-    margin-top: 2rem;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2.5rem;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 2rem;
+    align-items: start;
   }
 
-  .note-col {}
-
   .note-label {
-    font-size: 9.5px;
+    font-size: 9px;
     color: var(--ink-light);
-    letter-spacing: .22em;
+    letter-spacing: .2em;
     text-transform: uppercase;
     font-weight: 300;
-    margin-bottom: .65rem;
+    margin-bottom: .35rem;
     display: block;
   }
 
   .note-text {
-    font-size: 12px;
+    font-size: 10.5px;
     color: var(--ink-mid);
-    line-height: 2;
+    line-height: 1.75;
     font-weight: 300;
-    letter-spacing: .02em;
+    letter-spacing: .015em;
   }
 
   .credit {
-    grid-column: 1 / -1;
-    border-top: .5px solid var(--ink-faint);
-    padding-top: 1.2rem;
-    margin-top: .5rem;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: .3rem;
+    padding-left: 1.5rem;
+    border-left: .5px solid var(--ink-faint);
   }
 
   .credit span {
-    font-size: 10px;
+    font-size: 9.5px;
     color: var(--ink-faint);
-    letter-spacing: .12em;
+    letter-spacing: .1em;
+    text-align: right;
+    line-height: 1.6;
   }
 
-  @media (max-width: 640px) {
-    footer { grid-template-columns: 1fr; gap: 1.8rem; padding: 2rem 1.5rem 3rem; }
-    header { padding: 2.5rem 1.5rem 1rem; }
-    main { padding: 0 1rem; }
-    .credit { flex-direction: column; gap: .5rem; text-align: center; }
+  @media (max-width: 768px) {
+    footer { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .credit { grid-column: 1/-1; border-left: none; border-top: .5px solid var(--ink-faint); padding-left: 0; padding-top: .8rem; align-items: flex-start; flex-direction: row; justify-content: space-between; }
+  }
+
+  @media (max-width: 480px) {
+    footer { grid-template-columns: 1fr; }
+    header { padding: 1.5vh 1rem .5vh; }
+    main { padding: 0 .8rem; }
   }
 </style>
 </head>
@@ -147,26 +151,26 @@
 
 <main>
   <div class="pond-wrap">
-    <canvas id="c" width="2072" height="997"></canvas>
+    <canvas id="c" width="2812" height="1291"></canvas>
   </div>
 </main>
 
 <footer>
   <div class="note-col">
     <span class="note-label">魚群行為</span>
-    <p class="note-text">三百隻小魚以金魚輪廓為初始形態分佈於池中。靜態時緩慢游動，受驚後向外逃散，待威脅解除後，每隻魚受家鄉彈力牽引，漸漸歸位，重組成原始形態。恐懼從受驚個體向鄰近魚群傳遞，形成自然的群體連鎖反應。</p>
+    <p class="note-text">三百隻小魚以金魚輪廓為初始形態。靜態時緩慢游動，受驚後逃散，漸漸歸位重組。恐懼從個體向鄰近魚群傳遞，形成連鎖反應。</p>
   </div>
   <div class="note-col">
     <span class="note-label">物理設計</span>
-    <p class="note-text">每隻魚具備獨立的速度、行進方向、深度層次，以及各自的歸位彈力座標。閒置時依隨機漫遊方向慢速行進，遭遇掠食者時受斥力驅動急速逃竄，阻尼衰減後速度漸緩，彈力引導歸位。空間格狀索引確保鄰域計算效能。</p>
+    <p class="note-text">每隻魚具備速度、方向、深度層次與個別回家彈力。閒置慢速漫遊，遭遇掠食者時急速逃竄，阻尼衰減後彈力引導歸位。</p>
   </div>
   <div class="note-col">
     <span class="note-label">視覺美學</span>
-    <p class="note-text">水墨宣紙為基調，無邊框，無色彩干擾。魚以俯視剪影呈現，深淺透明度模擬水中深度，約一成三為錦鯉點綴。尾鰭依游速動態擺動，速度越快擺幅越大。滑鼠移動在水面留下擴散漣漪，六片有機輪廓睡蓮靜置池面。</p>
+    <p class="note-text">水墨宣紙為基調，魚以俯視剪影呈現，深淺透明度模擬水中深度。尾鰭依速度動態擺動，水面留下擴散漣漪。</p>
   </div>
   <div class="credit">
     <span>LNPRJ02 · 2026</span>
-    <span>移動滑鼠扮演掠食者，觀察魚群的群體反應</span>
+    <span>移動滑鼠扮演掠食者</span>
   </div>
 </footer>
 
