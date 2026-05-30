@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0041)file:///Users/nqya/Downloads/index_3.html -->
+<html lang="zh-TW"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>趕魚 · LNPRJ02</title>
-<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@300;400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<title>趕魚</title>
+<link href="./ganyu2_files/css2" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -15,103 +15,17 @@
     --ink-light: #b5a99a;
     --ink-faint: #d4ccbf;
     --serif: 'Noto Serif SC', 'Songti SC', 'STSong', Georgia, serif;
-
-    /* sidebar palette — dark to contrast with paper */
-    --sb-bg: #0f0f0e;
-    --sb-fg: #e5e1d8;
-    --sb-muted: #52504a;
-    --sb-line: rgba(229,225,216,.09);
-    --sb-hover: rgba(229,225,216,.05);
-    --sb-active: rgba(229,225,216,.1);
-    --sb-mono: 'Space Mono', 'Courier New', monospace;
-    --sb-w: 220px;
   }
 
-  html { height: 100%; overflow: hidden; background: var(--sb-bg); }
+  html { height: 100%; overflow: hidden; background: var(--paper); }
 
-  /* ── Layout: sidebar + content column ── */
   body {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     height: 100vh;
     overflow: hidden;
     font-family: var(--serif);
     color: var(--ink);
-  }
-
-  /* ── Sidebar ── */
-  .lnprj-sidebar {
-    width: var(--sb-w);
-    flex-shrink: 0;
-    background: var(--sb-bg);
-    border-right: .5px solid var(--sb-line);
-    display: flex;
-    flex-direction: column;
-    padding: 2rem 0 1.5rem;
-    overflow-y: auto;
-    font-family: var(--sb-mono);
-  }
-
-  .ln-logo {
-    display: block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: .24em;
-    color: var(--sb-fg);
-    text-decoration: none;
-    padding: 0 1.5rem .8rem;
-  }
-
-  .ln-divider {
-    height: .5px;
-    background: var(--sb-line);
-    margin: 0 1.5rem .8rem;
-  }
-
-  .ln-section { margin-bottom: .5rem; }
-
-  .ln-sec-label {
-    font-size: 8.5px;
-    color: var(--sb-muted);
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    padding: .35rem 1.5rem;
-  }
-
-  .ln-item {
-    display: block;
-    font-size: 11px;
-    color: var(--sb-muted);
-    text-decoration: none;
-    padding: .45rem 1.5rem;
-    transition: background .18s, color .18s;
-    letter-spacing: .06em;
-  }
-  .ln-item:hover { background: var(--sb-hover); color: var(--sb-fg); }
-  .ln-item.active { background: var(--sb-active); color: var(--sb-fg); }
-
-  .ln-proj-inner {
-    display: flex;
-    align-items: center;
-    gap: .55rem;
-  }
-  .ln-proj-num {
-    font-size: 9px;
-    color: var(--sb-muted);
-    letter-spacing: .08em;
-    min-width: 18px;
-  }
-  .ln-item.active .ln-proj-num { color: var(--sb-fg); }
-
-  /* ── Content column ── */
-  .app-content {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    overflow: hidden;
-    background: var(--paper);
   }
 
   /* ── Header ── */
@@ -215,14 +129,12 @@
     line-height: 1.6;
   }
 
-  /* ── Responsive ── */
   @media (max-width: 768px) {
     footer { grid-template-columns: 1fr 1fr; gap: 1rem; }
     .credit { grid-column: 1/-1; border-left: none; border-top: .5px solid var(--ink-faint); padding-left: 0; padding-top: .8rem; align-items: flex-start; flex-direction: row; justify-content: space-between; }
   }
 
-  @media (max-width: 600px) {
-    .lnprj-sidebar { display: none; }
+  @media (max-width: 480px) {
     footer { grid-template-columns: 1fr; }
     header { padding: 1.5vh 1rem .5vh; }
     main { padding: 0 .8rem; }
@@ -231,71 +143,38 @@
 </head>
 <body>
 
-<!-- ── Sidebar ── -->
-<aside class="lnprj-sidebar">
-  <a class="ln-logo" href="https://lnprj.neillin-lct.workers.dev">LNPRJ</a>
-  <div class="ln-divider"></div>
-  <div class="ln-section">
-    <div class="ln-sec-label">索引</div>
-    <a class="ln-item" href="https://lnprj.neillin-lct.workers.dev">索引頁</a>
+<header>
+  <h1 class="title-zh">趕魚</h1>
+  <div class="title-rule"></div>
+  <p class="title-en">pond · fish · simulation</p>
+</header>
+
+<main>
+  <div class="pond-wrap">
+    <canvas id="c" width="2812" height="1291"></canvas>
   </div>
-  <div class="ln-section">
-    <div class="ln-sec-label">作品</div>
-    <div id="ln-nav-projects"></div>
+</main>
+
+<footer>
+  <div class="note-col">
+    <span class="note-label">魚群行為</span>
+    <p class="note-text">三百隻小魚以金魚輪廓為初始形態。靜態時緩慢游動，受驚後逃散，漸漸歸位重組。恐懼從個體向鄰近魚群傳遞，形成連鎖反應。</p>
   </div>
-</aside>
-
-<!-- ── Main content ── -->
-<div class="app-content">
-
-  <header>
-    <h1 class="title-zh">趕魚</h1>
-    <div class="title-rule"></div>
-    <p class="title-en">pond · fish · simulation</p>
-  </header>
-
-  <main>
-    <div class="pond-wrap">
-      <canvas id="c"></canvas>
-    </div>
-  </main>
-
-  <footer>
-    <div class="note-col">
-      <span class="note-label">魚群行為</span>
-      <p class="note-text">三百隻小魚以金魚輪廓為初始形態。靜態時緩慢游動，受驚後逃散，漸漸歸位重組。恐懼從個體向鄰近魚群傳遞，形成連鎖反應。</p>
-    </div>
-    <div class="note-col">
-      <span class="note-label">物理設計</span>
-      <p class="note-text">每隻魚具備速度、方向、深度層次與個別回家彈力。閒置慢速漫遊，遭遇掠食者時急速逃竄，阻尼衰減後彈力引導歸位。</p>
-    </div>
-    <div class="note-col">
-      <span class="note-label">視覺美學</span>
-      <p class="note-text">水墨宣紙為基調，魚以俯視剪影呈現，深淺透明度模擬水中深度。尾鰭依速度動態擺動，水面留下擴散漣漪。</p>
-    </div>
-    <div class="credit">
-      <span>LNPRJ02 · 2026</span>
-      <span>移動滑鼠扮演掠食者</span>
-    </div>
-  </footer>
-
-</div><!-- /.app-content -->
+  <div class="note-col">
+    <span class="note-label">物理設計</span>
+    <p class="note-text">每隻魚具備速度、方向、深度層次與個別回家彈力。閒置慢速漫遊，遭遇掠食者時急速逃竄，阻尼衰減後彈力引導歸位。</p>
+  </div>
+  <div class="note-col">
+    <span class="note-label">視覺美學</span>
+    <p class="note-text">水墨宣紙為基調，魚以俯視剪影呈現，深淺透明度模擬水中深度。尾鰭依速度動態擺動，水面留下擴散漣漪。</p>
+  </div>
+  <div class="credit">
+    <span>LNPRJ02 · 2026</span>
+    <span>移動滑鼠扮演掠食者</span>
+  </div>
+</footer>
 
 <script>
-/* ── Sidebar nav loader ── */
-fetch('https://lnprj.neillin-lct.workers.dev/projects.json')
-  .then(r => r.json())
-  .then(list => {
-    document.getElementById('ln-nav-projects').innerHTML = list.map(p => `
-      <a class="ln-item${p.id === '02' ? ' active' : ''}" href="${p.url}">
-        <span class="ln-proj-inner">
-          <span class="ln-proj-num">${p.id}</span>
-          <span>${p.title}</span>
-        </span>
-      </a>`).join('');
-  }).catch(() => {});
-
-/* ── Fish simulation ── */
 const cvs = document.getElementById('c');
 const ctx = cvs.getContext('2d');
 
@@ -547,5 +426,7 @@ window.addEventListener('resize', resize);
 resize(); tick();
 </script>
 
-</body>
-</html>
+
+<script src="https://lnprj.neillin-lct.workers.dev/lnprj-nav.js"></script>
+<script>LNPRJ.init({ current: 2, basePath: '../' });</script>
+</body></html>
